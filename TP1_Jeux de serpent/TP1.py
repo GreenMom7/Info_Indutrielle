@@ -27,15 +27,18 @@ def move():
     # Vérification : a-t-on atteint les limites du canevas ? :
     if xq<0 or xq>canX-cc or yq<0 or yq>canY-cc:
         flag =0 # => arrêt de l'animation
-        can.create_text(canX/2, 20, anchor =CENTER, text ="Perdu !!!"
-                                ,fill ="red", font="Arial 14 bold")
+        can.create_text(canX/2, 20, anchor =CENTER, text ="Perdu !!!",fill ="red", font="Arial 14 bold")
     can.coords(cq, xq, yq, xq+cc, yq+cc) # déplacement effectif
     serp.append([cq, xq, yq]) # mémorisation du nouveau carré de tête
+    
     del(serp[0]) # effacement (retrait de la liste)
+    
     # Appel récursif de la fonction par elle-même (=> boucle d'animation) :
-    if flag ==1:
+    if flag == 1:
         fen.after(200,move)
+        
     #Consommer la nourriture
+    global cpt
     for food in foods:
         fx = food[1]
         fy = food[2]
@@ -43,7 +46,12 @@ def move():
         if d<cc:
             can.delete(food[0]) #efface le dessin
             del(food)#enleve de la liste
+            cpt=cpt-1
             growth()
+            if(cpt == 0):
+                flag = 0
+                can.create_text(canX/2, 20, anchor =CENTER, text ="Menang!!!",fill ="red", font="Arial 14 bold")  
+            
             
 
 def right(event):
@@ -94,10 +102,6 @@ fen.bind("<Right>", right)
 fen.bind("<Up>", up)
 fen.bind("<Down>", down)
 
-#Création de la nouritture
-
-
-
 
 # Création du serpent initial (= ligne de 5 carrés).
 serp =[] # liste vide
@@ -109,7 +113,11 @@ while i <5:
     serp.append([carre, x, y])  
     x =x+cc # le carré suivant sera un peu plus à droite
     i =i+1
-    
+
+#Création de la nouritture 
+ 
+global cpt
+cpt = 0
 foods=[]
 while j<10: 
     fx=randint(0,(canX-cc))
@@ -117,5 +125,6 @@ while j<10:
     food=can.create_oval(fx,fy,fx+cc,fy-cc,fill="yellow")
     foods.append([food,fx,fy])
     j =j+1
+    cpt=cpt+1
 
 fen.mainloop()

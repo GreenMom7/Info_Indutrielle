@@ -1,6 +1,6 @@
 #TD1
 
-# -*- coding:Latin-1 -*-
+#-*- coding:Latin-1 -*-
 
 # #Exo1
 # a = input("entrez une valeur entière :")
@@ -62,15 +62,16 @@
 # print(" ")
 
 # #Exo7
-# t1 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-# t2 = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin','Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-# i=0; a=0
-# for i in range(0,11,1):
-#     t3=[(t1[i],t2[i])]
+t1 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+t2 = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin','Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre']
+t3=[]
+i=0; a=0
+for i in range(0,11,1):
+    (t1[i],t2[i]).append(t3)
 
 
-# for a in range(0,11,1):
-#     print(t3[i]
+for a in range(0,11,1):
+    print(t3[i])
           
 
 #Exo9

@@ -113,10 +113,19 @@ def ReadMto():
 
             elif input_data[2] == 0x35:
                 #Trame 5 - Vent
-                Orientation= ['N','NE','E','SE','S','SO','O','NO']
-                ori=input_data[5]- 0x30
-                temperature = input_data[3:8].decode('ascii')
-                LDataVent.configure(text='Vent de vitesse '+vitesse+' noeuds et d'orientation  )
+                vitesse=0
+                if data[2]==0x35:
+                   i=3
+                   vitesse=0
+                   Orientation=['N','NE','E','SE','S','SO','O','NO']
+
+                   while(data[i]==0x3C):
+                      i=i+1
+                      vitesse=vitesse+10
+
+                   vent=Orientation[data[i]-0x30]
+          
+                   LDataVent.configure(text='Vent de vitesse'+' '+ str(vitesse) +' '+'noeuds'+' '+ vent+ "" )
 
             
     fen1.after(50,ReadMto)
