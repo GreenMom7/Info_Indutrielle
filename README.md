@@ -1,6 +1,6 @@
 ## Collection de TDs et TPs de II3
 
-### Travaux Dirigés
+### I.  Travaux Dirigés
 Mettre l'accent sur les bases de programmation du Python
 - TD1 : Notions de base
 - TD2 : Fonctions
@@ -8,7 +8,7 @@ Mettre l'accent sur les bases de programmation du Python
 - TD4 et TD5 : Programmation Orienté Objet pour les geometries
 - TD6 : Utilisation du matplotlib pour visualisation
 
-### Travaux Pratiques
+### II. Travaux Pratiques
 Savoir appliquer les competences vues en TD
 - TP1 : Consevoir un jeu de serpent avec des fonctionnalitées comme l'evolution de la taille, des obstacles etc
 - TP2 : Recuperation des trames de donnees venant d'une station méteorologie
